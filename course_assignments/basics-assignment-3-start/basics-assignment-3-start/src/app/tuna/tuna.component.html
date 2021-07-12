@@ -1,0 +1,10 @@
+<button class="btn btn-primary" (click)="clickCounter()">Display Details</button>
+<p *ngIf="displayText; else swordfish">Secret Password = Swordfish</p>
+<ng-template #swordfish><p>-- Nothing to show --</p></ng-template>
+<spam *ngFor="let line of buttonClicks; index as i;">
+    <p *ngIf="i < 4 ; else changeColor">{{line}}</p>
+    <ng-template #changeColor >
+        <p [ngStyle]="{'backgroundColor':'blue'}" [ngClass]="{'fifth':true}">
+            {{line}}
+        </p>
+    </ng-template></spam>
